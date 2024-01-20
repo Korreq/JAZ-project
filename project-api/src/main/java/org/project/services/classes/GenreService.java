@@ -20,6 +20,7 @@ public class GenreService implements IGenreService {
     public Long createGenre(GenreCreator genreCreator) {
         var newGenre = new Genre();
         newGenre.setName(genreCreator.getName());
+
         var savedGenre = database.getGenres().save(newGenre);
         return savedGenre.getId();
     }

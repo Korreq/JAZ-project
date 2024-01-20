@@ -23,7 +23,7 @@ public class AlbumController {
     @GetMapping
     public ResponseEntity<List<AlbumDto>> getPage(
             @RequestParam(required = false, defaultValue = "50") int size,
-            @RequestParam(required = false, defaultValue = "1") int page
+            @RequestParam(required = false, defaultValue = "0") int page
     ){ return ResponseEntity.ok(albumService.getByPage(size, page)); }
     @PostMapping("/create")
     public ResponseEntity createAlbum( @RequestBody @Validated AlbumCreator albumCreator){
@@ -71,11 +71,11 @@ public class AlbumController {
         if(trackDtos==null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(trackDtos);
     }
-    @GetMapping("byArtistName")
+    @GetMapping("byArtist")
     public ResponseEntity<List<AlbumDto>> getByArtistName(@RequestParam String name){
         return ResponseEntity.ok(albumService.getByArtistName(name));
     }
-    @GetMapping("byGenreNameAndYear")
+    @GetMapping("byGenreAndYear")
     public ResponseEntity<List<AlbumDto>> getByGenreNameAndYear(@RequestParam String name, @RequestParam String year){
         return ResponseEntity.ok(albumService.findByGenreNameAndYear(name, year));
     }

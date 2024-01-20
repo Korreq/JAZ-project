@@ -4,7 +4,6 @@ import jakarta.transaction.Transactional;
 import org.project.contracts.AlbumDto;
 import org.project.contracts.GenreDto;
 import org.project.creators.GenreCreator;
-import org.project.model.Genre;
 
 import java.util.List;
 

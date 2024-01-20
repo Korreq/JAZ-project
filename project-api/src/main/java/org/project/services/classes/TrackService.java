@@ -11,7 +11,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 @Service
 @AllArgsConstructor
@@ -23,11 +22,10 @@ public class TrackService implements ITrackService {
         newTrack.setName(trackCreator.getName());
         newTrack.setNumber(trackCreator.getNumber());
         newTrack.setDuration(trackCreator.getDuration());
+
         var album = database.getAlbums().findById(trackCreator.getAlbumId()).orElse(null);
         newTrack.setAlbum(album);
-        assert album != null;
-        album.getTracks().add(newTrack);
-        database.getAlbums().save(album);
+
         var savedTrack = database.getTracks().save(newTrack);
         return savedTrack.getId();
     }

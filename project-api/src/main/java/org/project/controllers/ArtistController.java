@@ -21,7 +21,7 @@ public class ArtistController {
     @GetMapping
     public ResponseEntity<List<ArtistDto>> getPage(
             @RequestParam(required = false, defaultValue = "50") int size,
-            @RequestParam(required = false, defaultValue = "1") int page
+            @RequestParam(required = false, defaultValue = "0") int page
     ){ return ResponseEntity.ok(artistService.getByPage(size, page)); }
     @PostMapping("/create")
     public ResponseEntity createArtist(@RequestBody @Validated ArtistCreator artistCreator){

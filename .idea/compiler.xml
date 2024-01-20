@@ -7,13 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="project-data-updater" />
         <module name="project-data" />
         <module name="project-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="JAZ-project" target="17" />
+      <module name="project-data-updater" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -12,5 +12,4 @@ public class TrackDto {
     private String name;
     private Integer number;
     private Float duration;
-    private AlbumDto album;
 }

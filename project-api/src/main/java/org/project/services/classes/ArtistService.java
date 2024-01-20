@@ -25,6 +25,7 @@ public class ArtistService implements IArtistService {
         newArtist.setStartYear(artistCreator.getStartYear());
         newArtist.setEndYear(artistCreator.getEndYear());
         newArtist.setAge(getAge(artistCreator.getStartYear(), artistCreator.getEndYear()));
+
         var savedArtist = database.getArtists().save(newArtist);
         return savedArtist.getId();
     }

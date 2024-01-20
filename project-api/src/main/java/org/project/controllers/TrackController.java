@@ -22,7 +22,7 @@ public class TrackController {
     @GetMapping
     public ResponseEntity<List<TrackDto>> getPage(
             @RequestParam(required = false, defaultValue = "50") int size,
-            @RequestParam(required = false, defaultValue = "1") int page
+            @RequestParam(required = false, defaultValue = "0") int page
     ){ return ResponseEntity.ok(trackService.getByPage(size, page)); }
     @PostMapping("/create")
     public ResponseEntity createTrack(@RequestBody @Validated TrackCreator trackCreator){

@@ -24,15 +24,12 @@ public class AlbumService implements IAlbumService {
         var newAlbum = new Album();
         newAlbum.setName(albumCreator.getName());
         newAlbum.setYear(albumCreator.getYear());
+
         var artist = database.getArtists().findById(albumCreator.getArtistId()).orElse(null);
         newAlbum.setArtist(artist);
-        assert artist != null;
-        artist.getAlbums().add(newAlbum);
         var genre = database.getGenres().findById(albumCreator.getGenreId()).orElse(null);
         newAlbum.setGenre(genre);
-        genre.getAlbums().add(newAlbum);
-        database.getArtists().save(artist);
-        database.getGenres().save(genre);
+
         var savedAlbum = database.getAlbums().save(newAlbum);
         return savedAlbum.getId();
     }
